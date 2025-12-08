@@ -8,15 +8,15 @@
 # Posted by Bennet Yee, modified by community. See post 'Timeline' for change history
 # Retrieved 2025-12-07, License - CC BY-SA 4.0
 
-read -p "are you sure you want to delete every compilation? (yes/no) " -r
+read -p "are you sure you want to delete every compilation? (y/n) " -r
 
-if [[ $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
+if [[ $REPLY =~ ^[Yy]$ ]]; then
   find ex*/ex* -maxdepth 2 -type f ! -name "*.c" -exec echo "rm -rf {}" \; -exec rm -rf "{}" \;
-elif [[ $REPLY =~ ^[Nn][Oo]$ ]]; then
+elif [[ $REPLY =~ ^[Nn]$ ]]; then
   printf "deletion aborted \n"
   exit 1
 else
-  printf "invalid input. Please enter 'yes' or 'no'.\n"
+  printf "invalid input. Please enter 'y' or 'n'.\n"
 fi
 
 exit 0
